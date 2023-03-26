@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UploadFileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,12 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/about-us',[HomeController::class,'about'])->name('about');
 Route::get('/team',[HomeController::class,'team'])->name('team');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
-
+Route::get('/photos',[UploadFileController::class,'index'])->name('photos');
 //post controller 
 Route::get('/post',[Postcontroller::class,'index']);
 Route::get('/post-create',[Postcontroller::class,'create']);
 Route::post('/post-store',[Postcontroller::class,'create_post']);
 
+//photos controller
+Route::get('/photos-upload',[UploadFileController::class,'create'])->name('photos-upload');
+Route::post('/photos-upload',[UploadFileController::class,'upload'])->name('photos-upload');
