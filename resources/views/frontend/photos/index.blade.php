@@ -7,7 +7,7 @@
 <div class="container">
   <h2 class="text-center">Bordered Table</h2>
   <div class="mb-2">
-    <a href="{{route('photos-upload')}}"><button type="button" class="btn btn-primary">Upload Data</button></a> 
+    <a href="{{route('photos.create')}}"><button type="button" class="btn btn-primary">Upload Data</button></a> 
   </div>
 
   
@@ -18,21 +18,17 @@
       <tr>
         <th>Firstname</th>
         <th>Lastname</th>
-        <th>Email</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($image_details as $item)
-          
-      
       <tr>
-        <div class="col-sm-4">
-          <p class="text-center"><strong>{{$item->name}}</strong></p><br>
-          <a href="#demo2" data-toggle="collapse">
-            <img src="{{asset('storage/uploads/'.$item->image)}}" class="img-circle person" alt="San Francisco" width="400" height="300">
-          </a>
-        </div>
-        
+        <td>{{$item->name}}</td>
+        <td><img src="{{asset('public/uploads/'.$item->image)}}" alt="San Francisco" width="400" height="300"></td>
+        <td>
+          <a href="{{route('photos.edit',$item->id)}}"><button type="button" class="btn btn-warning">Edit</button></a>
+        </td>
       </tr>
       @endforeach
     </tbody>

@@ -33,7 +33,7 @@
                         <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('photos') }}">Photos</a>
+                        <a class="nav-link" href="{{ route('photos.index') }}">Photos</a>
                     </li>
                 </ul>
                 <form class="d-flex">
