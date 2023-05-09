@@ -23,15 +23,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('team')}}">Team</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('about') }}">About</a>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('photos.index') }}">Photos</a>
                     </li>
