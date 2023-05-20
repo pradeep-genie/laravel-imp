@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\RegisterController;
-use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/login',[LoginController::class,'login'])->middleware('api');
+Route::post('/login',[UserController::class,'login'])->middleware('api');
+Route::post('/logout',[UserController::class,'destroy'])->middleware('api');
 Route::post('/register',[RegisterController::class,'register'])->middleware('api');

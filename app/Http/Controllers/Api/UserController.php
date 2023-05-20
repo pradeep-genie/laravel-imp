@@ -6,9 +6,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class LoginController extends Controller
+class UserController extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -39,5 +40,27 @@ class LoginController extends Controller
             ], 201);
 
         }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request)
+    {
+        try{
+            auth()->logout();
+            return response()->json([
+                'success'=>true,
+                'message' => 'Logged out successfully']);
+        }catch(\Exception $e){
+            return response()->json([
+                'success'=>false,
+                'message'=>$e->getMessage()
+            ]);
+        }
+
     }
 }
