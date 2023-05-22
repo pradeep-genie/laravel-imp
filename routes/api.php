@@ -20,6 +20,13 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/login',[UserController::class,'login'])->middleware('api');
-Route::post('/logout',[UserController::class,'destroy'])->middleware('api');
-Route::post('/register',[RegisterController::class,'register'])->middleware('api');
+Route::group(['middleware' => 'api'],function($routes){
+
+    Route::post('/login',[UserController::class,'login']);
+    Route::post('/logout',[UserController::class,'destroy']);
+    Route::post('/register',[RegisterController::class,'register']);
+    Route::get('/profile',[UserController::class,'profile']);
+    Route::post('/profile-update',[UserController::class,'profile_update']);
+
+});
+
